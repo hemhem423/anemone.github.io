@@ -1,9 +1,9 @@
-/* ============================================
-   特別養護老人ホーム あねもね — main.js
-   ============================================ */
+/* ============================================================
+   あねもね — main.js
+   ============================================================ */
 'use strict';
 
-/* ── Blob morphing keyframes ────────────────── */
+/* ── 1. Blob morphing keyframes ─────────────────────────── */
 const mCSS = document.createElement('style');
 mCSS.textContent = `
   @keyframes ma {
@@ -25,85 +25,195 @@ mCSS.textContent = `
 `;
 document.head.appendChild(mCSS);
 
-const blobs = document.querySelectorAll('.b');
-const mKeys = ['ma', 'mb', 'mc', 'mb', 'ma', 'mc'];
-const mDurs = [26, 22, 28, 30, 24, 20];
+const blobs  = document.querySelectorAll('.blob');
+const mKeys  = ['ma', 'mb', 'mc', 'mb', 'ma', 'mc'];
+const mDurs  = [26, 22, 30, 28, 24, 20];
 blobs.forEach((b, i) => {
-  b.style.animation = `${mKeys[i]} ${mDurs[i]}s ease-in-out infinite`;
+  b.style.animation = `${mKeys[i % mKeys.length]} ${mDurs[i]}s ease-in-out infinite`;
 });
 
-/* ── Blob parallax (rAF-throttled) ─────────── */
-let tick = false;
+/* ── 2. Blob parallax (rAF) ─────────────────────────────── */
+let blobTick = false;
 const moveBlobs = () => {
   const sy = window.scrollY;
   blobs.forEach(b => {
-    const speed = parseFloat(b.dataset.speed) || 0.05;
-    b.style.transform = `translateY(${-sy * speed}px)`;
+    const sp = parseFloat(b.dataset.speed) || 0.05;
+    b.style.transform = `translateY(${-sy * sp}px)`;
   });
-  tick = false;
+  blobTick = false;
 };
 window.addEventListener('scroll', () => {
-  if (!tick) { requestAnimationFrame(moveBlobs); tick = true; }
+  if (!blobTick) { requestAnimationFrame(moveBlobs); blobTick = true; }
 }, { passive: true });
 moveBlobs();
 
-/* ── Hamburger menu ─────────────────────────── */
-const hbg    = document.getElementById('hbg');
-const mm     = document.getElementById('mmenu');
-const mclose = document.getElementById('mmenu-close');
+/* ── 3. Scroll-reveal (data-anim) ───────────────────────── */
+const animObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      animObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-const openM = () => {
-  hbg.setAttribute('aria-expanded', 'true');
-  hbg.setAttribute('aria-label', 'メニューを閉じる');
-  mm.setAttribute('aria-hidden', 'false');
-  mm.classList.add('open');
+document.querySelectorAll('[data-anim]').forEach(el => animObs.observe(el));
+
+/* ── 4. Stagger children of .stagger parent ─────────────── */
+document.querySelectorAll('.stagger').forEach(parent => {
+  const children = parent.children;
+  Array.from(children).forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.08}s`;
+  });
+  animObs.observe(parent);
+});
+
+/* ── 5. Counter animation ────────────────────────────────── */
+const counters = document.querySelectorAll('[data-count]');
+
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el  = e.target;
+    const end = parseInt(el.dataset.count, 10);
+    const dur = 1600;
+    const start = performance.now();
+    const tick = now => {
+      const elapsed = now - start;
+      const prog = Math.min(elapsed / dur, 1);
+      const eased = 1 - Math.pow(1 - prog, 3); // ease-out cubic
+      el.textContent = Math.round(eased * end);
+      if (prog < 1) requestAnimationFrame(tick);
+      else el.textContent = end;
+    };
+    requestAnimationFrame(tick);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(c => countObs.observe(c));
+
+/* ── 6. Header scroll class ─────────────────────────────── */
+const hdr = document.querySelector('.hdr');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+/* ── 7. Active nav highlight ────────────────────────────── */
+const navAs = document.querySelectorAll('.gnav-a');
+const sections = document.querySelectorAll('section[id], nav[id]');
+
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navAs.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector(`.gnav-a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+
+sections.forEach(s => navObs.observe(s));
+
+/* ── 8. Hamburger / mobile menu ─────────────────────────── */
+const hbgBtn  = document.getElementById('hbg');
+const mmenu   = document.getElementById('mmenu');
+const mclose  = document.getElementById('mmenu-close');
+
+const openMenu = () => {
+  hbgBtn.setAttribute('aria-expanded', 'true');
+  hbgBtn.setAttribute('aria-label', 'メニューを閉じる');
+  mmenu.setAttribute('aria-hidden', 'false');
+  mmenu.classList.add('open');
   document.body.style.overflow = 'hidden';
 };
-
-const closeM = () => {
-  hbg.setAttribute('aria-expanded', 'false');
-  hbg.setAttribute('aria-label', 'メニューを開く');
-  mm.setAttribute('aria-hidden', 'true');
-  mm.classList.remove('open');
+const closeMenu = () => {
+  hbgBtn.setAttribute('aria-expanded', 'false');
+  hbgBtn.setAttribute('aria-label', 'メニューを開く');
+  mmenu.setAttribute('aria-hidden', 'true');
+  mmenu.classList.remove('open');
   document.body.style.overflow = '';
 };
 
-hbg.addEventListener('click', () => {
-  hbg.getAttribute('aria-expanded') === 'true' ? closeM() : openM();
-});
-mclose.addEventListener('click', closeM);
-document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', closeM));
-document.addEventListener('keydown', e => e.key === 'Escape' && closeM());
+hbgBtn.addEventListener('click', () =>
+  hbgBtn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu()
+);
+mclose.addEventListener('click', closeMenu);
+document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
 
-/* ── Fade-in on scroll ──────────────────────── */
-const fiObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('on');
-      fiObs.unobserve(e.target);
-    }
+/* ── 9. Facility horizontal drag-scroll ─────────────────── */
+const track = document.querySelector('.fac-scroll-track');
+const bar   = document.querySelector('.fac-progress-bar');
+const prevBtn = document.getElementById('fac-prev');
+const nextBtn = document.getElementById('fac-next');
+
+if (track) {
+  let isDragging = false, startX = 0, scrollLeft = 0;
+
+  const updateBar = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const pct = max > 0 ? (track.scrollLeft / max) * 75 + 25 : 100;
+    if (bar) bar.style.width = pct + '%';
+  };
+
+  track.addEventListener('mousedown', e => {
+    isDragging = true;
+    track.classList.add('dragging');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    track.classList.remove('dragging');
+  });
+  track.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    updateBar();
+  });
+  track.addEventListener('scroll', updateBar, { passive: true });
 
-document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  // Touch support
+  let touchStartX = 0, touchScrollLeft = 0;
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].pageX;
+    touchScrollLeft = track.scrollLeft;
+  }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    const dx = touchStartX - e.touches[0].pageX;
+    track.scrollLeft = touchScrollLeft + dx;
+    updateBar();
+  }, { passive: true });
 
-/* ── Active nav highlight on scroll ────────── */
-const navAs = document.querySelectorAll('.gnav-a');
-document.querySelectorAll('section[id]').forEach(sec => {
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navAs.forEach(l => l.classList.remove('on'));
-        const a = document.querySelector(`.gnav-a[href="#${e.target.id}"]`);
-        if (a) a.classList.add('on');
-      }
-    });
-  }, { threshold: 0.35 }).observe(sec);
-});
+  const cardW = () => (track.querySelector('.fac-card')?.offsetWidth || 320) + 20;
 
-/* ── Back to top ────────────────────────────── */
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -cardW(), behavior: 'smooth' });
+    setTimeout(updateBar, 400);
+  });
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: cardW(), behavior: 'smooth' });
+    setTimeout(updateBar, 400);
+  });
+
+  updateBar();
+}
+
+/* ── 10. Back to top ─────────────────────────────────────── */
 const totop = document.getElementById('totop');
 window.addEventListener('scroll', () => {
-  totop.classList.toggle('on', window.scrollY > 400);
+  totop.classList.toggle('show', window.scrollY > 500);
 }, { passive: true });
 totop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── 11. Hero image subtle float ────────────────────────── */
+const heroImg = document.querySelector('.hero-img');
+if (heroImg) {
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    heroImg.style.transform = `translateY(${sy * 0.12}px)`;
+  }, { passive: true });
+}

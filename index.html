@@ -8,60 +8,48 @@
       content="東京都国立市の特別養護老人ホーム「あねもね」。利用者様お一人おひとりに寄り添い、安心・安全・快適な暮らしをご提供します。"
     />
     <title>特別養護老人ホーム あねもね｜東京都国立市</title>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ── BLOB BACKGROUND ──────────────────────── -->
+    <!-- BLOBS -->
     <div id="blobs" aria-hidden="true">
-      <div class="b b1" data-speed="0.04"></div>
-      <div class="b b2" data-speed="0.06"></div>
-      <div class="b b3" data-speed="0.07"></div>
-      <div class="b b4" data-speed="0.05"></div>
-      <div class="b b5" data-speed="0.04"></div>
-      <div class="b b6" data-speed="0.06"></div>
+      <div class="blob blob-a" data-speed="0.035"></div>
+      <div class="blob blob-b" data-speed="0.055"></div>
+      <div class="blob blob-c" data-speed="0.065"></div>
+      <div class="blob blob-d" data-speed="0.045"></div>
+      <div class="blob blob-e" data-speed="0.038"></div>
+      <div class="blob blob-f" data-speed="0.058"></div>
     </div>
 
-    <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+    <a href="#main" class="skip">メインコンテンツへスキップ</a>
 
-    <!-- ── TOP BAR ──────────────────────────────── -->
+    <!-- ── TOP BAR ─────────────────────────────────────────── -->
     <div class="topbar" role="complementary" aria-label="サイト補助情報">
       <div class="topbar-in">
         <div class="topbar-l">
           <span>〒186-0001 東京都国立市富士見台3-1-1</span>
-          <span>|</span>
+          <span class="topbar-sep">|</span>
           <span>JR南武線「谷保駅」南口 徒歩10分</span>
         </div>
         <div class="topbar-r">
           <div class="topbar-tel">
             <span aria-hidden="true">📞</span>
             <div>
-              <div class="topbar-tel-lbl">
-                お電話でのお問い合わせ（受付 平日9:00〜17:30）
-              </div>
+              <small>お電話でのお問い合わせ</small><br />
               <a href="tel:0425001234" style="color: inherit">042-500-1234</a>
             </div>
           </div>
-          <a
-            href="#contact"
-            class="btn btn-pink"
-            style="font-size: 0.8125rem; padding: 7px 18px"
-            >見学予約</a
-          >
         </div>
       </div>
     </div>
 
-    <!-- ── HEADER ────────────────────────────────── -->
+    <!-- ── HEADER ──────────────────────────────────────────── -->
     <header class="hdr" role="banner">
       <div class="hdr-in">
         <a
@@ -69,10 +57,10 @@
           class="logo"
           aria-label="特別養護老人ホーム あねもね トップページ"
         >
-          <div class="logo-mark" aria-hidden="true">🌸</div>
+          <div class="logo-icon" aria-hidden="true">🌸</div>
           <div>
-            <div class="logo-sub">特別養護老人ホーム</div>
-            <div class="logo-main">あねもね</div>
+            <div class="logo-text-sub">特別養護老人ホーム</div>
+            <div class="logo-text-main">あねもね</div>
           </div>
         </a>
 
@@ -87,7 +75,7 @@
         </nav>
 
         <div class="hdr-cta">
-          <a href="#contact" class="btn btn-pink">お問い合わせ・見学予約</a>
+          <a href="#contact" class="btn-cta">お問い合わせ・見学予約</a>
         </div>
 
         <button
@@ -102,7 +90,7 @@
       </div>
     </header>
 
-    <!-- ── MOBILE MENU ───────────────────────────── -->
+    <!-- ── MOBILE MENU ─────────────────────────────────────── -->
     <div
       class="mmenu"
       id="mmenu"
@@ -117,88 +105,156 @@
       >
         ✕
       </button>
-      <nav>
-        <ul class="mmenu-list">
-          <li><a href="#about" class="ml">施設について</a></li>
-          <li><a href="#services" class="ml">サービス・ケア</a></li>
-          <li><a href="#facility" class="ml">施設案内</a></li>
-          <li><a href="#news" class="ml">お知らせ</a></li>
-          <li><a href="#" class="ml">採用情報</a></li>
-        </ul>
-        <div class="mmenu-cta">
-          <a
-            href="tel:0425001234"
-            class="btn btn-outline"
-            style="justify-content: center"
-            >📞 042-500-1234</a
-          >
-          <a
-            href="#contact"
-            class="btn btn-pink ml"
-            style="justify-content: center"
-            >お問い合わせ・見学予約</a
-          >
-        </div>
-      </nav>
+      <ul class="mmenu-list">
+        <li><a href="#about" class="ml">施設について</a></li>
+        <li><a href="#services" class="ml">サービス・ケア</a></li>
+        <li><a href="#facility" class="ml">施設案内</a></li>
+        <li><a href="#news" class="ml">お知らせ</a></li>
+        <li><a href="#" class="ml">採用情報</a></li>
+      </ul>
+      <div class="mmenu-actions">
+        <a
+          href="tel:0425001234"
+          class="btn-secondary"
+          style="justify-content: center"
+          >📞 042-500-1234</a
+        >
+        <a
+          href="#contact"
+          class="btn-primary ml"
+          style="justify-content: center"
+          >お問い合わせ・見学予約</a
+        >
+      </div>
     </div>
 
-    <!-- ── MAIN ──────────────────────────────────── -->
     <main id="main">
-      <!-- HERO -->
+      <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
       <section class="hero" aria-label="メインビジュアル">
-        <div class="hero-in">
-          <div class="hero-body">
-            <div class="hero-tag">東京都国立市 / 特別養護老人ホーム</div>
-            <h1 class="hero-ttl">
-              一人ひとりの<em>「その人らしさ」</em>を大切に、<br />
-              温かみのある介護をご提供します。
-            </h1>
-            <p class="hero-desc">
-              あねもねは、ご入居者様の尊厳と自立を支援しながら、安心・安全・快適な暮らしを実現する特別養護老人ホームです。国立市の豊かな自然に囲まれた環境のなか、介護福祉士・看護師・栄養士などの専門職チームが365日24時間体制でケアにあたります。
-            </p>
-            <div class="hero-btns">
-              <a href="#contact" class="btn btn-pink">入居相談・見学予約</a>
-              <a href="#about" class="btn btn-outline">施設について詳しく</a>
-            </div>
+        <!-- Left content -->
+        <div class="hero-left">
+          <div class="hero-tag" data-anim="up">
+            東京都国立市 ／ 特別養護老人ホーム
           </div>
 
-          <div class="hero-img" aria-hidden="true">
-            <img
-              src="images/hero.jpg"
-              alt="スタッフとご入居者が笑顔でふれあっている様子"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <div class="hero-img-ph" style="display: none">
-              <span style="font-size: 3rem">🌸</span>
-              <span>images/hero.jpg</span>
-              <span style="font-size: 0.75rem; opacity: 0.7"
-                >スタッフとご入居者の笑顔</span
-              >
+          <h1 class="hero-ttl" data-anim="up" data-delay="1">
+            一人ひとりの<br />
+            <em>「その人らしさ」</em>を大切に、<br />
+            温かみのある介護をご提供します。
+          </h1>
+
+          <p class="hero-desc" data-anim="up" data-delay="2">
+            あねもねは、ご入居者様の尊厳と自立を支援しながら、安心・安全・快適な暮らしを実現する特別養護老人ホームです。介護福祉士・看護師・栄養士などの専門職チームが365日24時間体制でケアにあたります。
+          </p>
+
+          <div class="hero-btns" data-anim="up" data-delay="3">
+            <a href="#contact" class="btn-primary">入居相談・見学予約</a>
+            <a href="#about" class="btn-secondary">施設について詳しく</a>
+          </div>
+
+          <div class="hero-stats" data-anim="up" data-delay="4">
+            <div>
+              <div class="hstat-n">
+                <span data-count="48">0</span><small>床</small>
+              </div>
+              <div class="hstat-l">全室個室・定員数</div>
+            </div>
+            <div>
+              <div class="hstat-n">24<small>時間</small></div>
+              <div class="hstat-l">専門スタッフ常駐</div>
+            </div>
+            <div>
+              <div class="hstat-n">
+                <span data-count="2015">0</span><small>年</small>
+              </div>
+              <div class="hstat-l">開設</div>
+            </div>
+            <div>
+              <div class="hstat-n">
+                <span data-count="6">0</span><small>ユニット</small>
+              </div>
+              <div class="hstat-l">ユニット型ケア</div>
             </div>
           </div>
         </div>
 
+        <!-- Right image -->
+        <div class="hero-right" aria-hidden="true">
+          <img
+            class="hero-img"
+            src="images/hero.jpg"
+            alt="スタッフとご入居者が笑顔でふれあっている様子"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="hero-img-ph" style="display: none">
+            <span style="font-size: 4rem">🌸</span>
+            <span>images/hero.jpg</span>
+            <span style="font-size: 0.8rem; opacity: 0.7"
+              >スタッフとご入居者の笑顔</span
+            >
+          </div>
+
+          <!-- Floating badge -->
+          <div class="hero-badge" data-anim="scale" data-delay="4">
+            <div class="hero-badge-ico">🌿</div>
+            <div>
+              <div class="hero-badge-main">介護職員処遇改善加算Ⅰ</div>
+              <div class="hero-badge-sub">算定取得施設</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wave bottom -->
         <div class="hero-wave" aria-hidden="true">
           <svg
-            viewBox="0 0 1440 56"
+            viewBox="0 0 1440 60"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,28 C360,56 720,0 1080,28 C1260,42 1380,20 1440,28 L1440,56 L0,56 Z"
-              fill="white"
+              d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
+              fill="#ffffff"
             />
           </svg>
         </div>
       </section>
 
-      <!-- QUICK ACCESS -->
-      <nav class="qa" aria-label="クイックアクセス">
+      <!-- ══════════════════════════════════════════
+     TRUST TICKER
+══════════════════════════════════════════ -->
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-track">
+          <!-- duplicated for seamless loop -->
+          <span class="ticker-item">介護職員処遇改善加算Ⅰ 算定</span>
+          <span class="ticker-item">機能訓練加算Ⅱ 算定</span>
+          <span class="ticker-item">看護師常勤・嘱託医週2回訪問</span>
+          <span class="ticker-item">看取り介護加算 算定</span>
+          <span class="ticker-item">24時間専門スタッフ常駐</span>
+          <span class="ticker-item">全室個室・ユニット型</span>
+          <span class="ticker-item">東京都国立市 2015年開設</span>
+          <span class="ticker-item">管理栄養士常勤</span>
+          <span class="ticker-item">介護職員処遇改善加算Ⅰ 算定</span>
+          <span class="ticker-item">機能訓練加算Ⅱ 算定</span>
+          <span class="ticker-item">看護師常勤・嘱託医週2回訪問</span>
+          <span class="ticker-item">看取り介護加算 算定</span>
+          <span class="ticker-item">24時間専門スタッフ常駐</span>
+          <span class="ticker-item">全室個室・ユニット型</span>
+          <span class="ticker-item">東京都国立市 2015年開設</span>
+          <span class="ticker-item">管理栄養士常勤</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+     QUICK ACCESS
+══════════════════════════════════════════ -->
+      <nav class="qa" aria-label="クイックアクセス" id="qa">
         <div class="qa-grid">
-          <a href="#contact" class="qa-a">
+          <a href="#contact" class="qa-item" data-anim="up">
             <div class="qa-ico" aria-hidden="true">📋</div>
             <div>
               <div class="qa-lbl">まずはご相談から</div>
@@ -206,7 +262,7 @@
             </div>
             <span class="qa-arr" aria-hidden="true">›</span>
           </a>
-          <a href="#" class="qa-a">
+          <a href="#" class="qa-item" data-anim="up" data-delay="1">
             <div class="qa-ico" aria-hidden="true">📄</div>
             <div>
               <div class="qa-lbl">費用・定員など</div>
@@ -214,7 +270,7 @@
             </div>
             <span class="qa-arr" aria-hidden="true">›</span>
           </a>
-          <a href="#" class="qa-a">
+          <a href="#" class="qa-item" data-anim="up" data-delay="2">
             <div class="qa-ico" aria-hidden="true">❓</div>
             <div>
               <div class="qa-lbl">よくあるご質問</div>
@@ -222,7 +278,7 @@
             </div>
             <span class="qa-arr" aria-hidden="true">›</span>
           </a>
-          <a href="#" class="qa-a">
+          <a href="#" class="qa-item" data-anim="up" data-delay="3">
             <div class="qa-ico" aria-hidden="true">💼</div>
             <div>
               <div class="qa-lbl">一緒に働きませんか</div>
@@ -233,234 +289,264 @@
         </div>
       </nav>
 
-      <!-- NEWS -->
-      <section id="news" class="sec" aria-labelledby="news-ttl">
+      <!-- ══════════════════════════════════════════
+     NEWS
+══════════════════════════════════════════ -->
+      <section id="news" class="sec-news" aria-labelledby="news-ttl">
         <div class="wrap">
-          <div class="topgrid">
-            <div>
-              <div class="news-hd">
-                <h2 class="news-hd-ttl" id="news-ttl">お知らせ</h2>
-                <a href="#" class="ghost">一覧を見る</a>
-              </div>
-              <ul class="news-list fi" role="list">
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-06-10"
-                        >2025.06.10</time
-                      >
-                      <span class="news-cat c-info">お知らせ</span>
-                    </div>
-                    <span class="news-txt"
-                      >令和7年度
-                      介護報酬改定への対応について。当施設のサービス内容・加算体制に変更はございません。</span
-                    >
-                  </a>
-                </li>
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-06-01"
-                        >2025.06.01</time
-                      >
-                      <span class="news-cat c-info">お知らせ</span>
-                    </div>
-                    <span class="news-txt"
-                      >夏のボランティア募集を開始しました（7〜9月活動）。地域の皆さまのご参加をお待ちしています。</span
-                    >
-                  </a>
-                </li>
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-05-20"
-                        >2025.05.20</time
-                      >
-                      <span class="news-cat c-evt">イベント</span>
-                    </div>
-                    <span class="news-txt"
-                      >【6月28日（土）開催】施設見学会のご案内。予約不要・当日参加可。10:00〜12:00、施設1階ロビー集合。</span
-                    >
-                  </a>
-                </li>
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-05-15"
-                        >2025.05.15</time
-                      >
-                      <span class="news-cat c-rep">活動報告</span>
-                    </div>
-                    <span class="news-txt"
-                      >春の交流会（お花見会）を実施しました。ご入居者・ご家族・地域ボランティアの皆さまとともに、楽しいひとときとなりました。</span
-                    >
-                  </a>
-                </li>
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-05-01"
-                        >2025.05.01</time
-                      >
-                      <span class="news-cat c-rec">採用情報</span>
-                    </div>
-                    <span class="news-txt"
-                      >介護スタッフ（正社員・パート）を積極採用中です。未経験・無資格の方も歓迎。施設見学・個別相談を随時受け付けています。</span
-                    >
-                  </a>
-                </li>
-                <li class="news-row">
-                  <a href="#">
-                    <div class="news-meta">
-                      <time class="news-dt" datetime="2025-04-01"
-                        >2025.04.01</time
-                      >
-                      <span class="news-cat c-info">お知らせ</span>
-                    </div>
-                    <span class="news-txt"
-                      >令和7年度の年間行事予定を公開しました。桜祭り・七夕・夏祭り・クリスマス会など多彩なプログラムを計画しています。</span
-                    >
-                  </a>
-                </li>
-              </ul>
+          <!-- Sidebar -->
+          <div class="news-sidebar">
+            <div data-anim="left">
+              <div class="eyebrow">News</div>
+              <h2 class="sec-ttl" id="news-ttl">お知らせ</h2>
+              <p class="sec-body">
+                施設の最新情報やイベントのご案内をお届けしています。
+              </p>
             </div>
+            <a href="#" class="news-more" data-anim="up" data-delay="2"
+              >一覧を見る</a
+            >
           </div>
+
+          <!-- List -->
+          <ul class="news-list" role="list" data-anim="right">
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-06-10">2025.06.10</time>
+                  <span class="news-cat c-info">お知らせ</span>
+                </div>
+                <span class="news-txt"
+                  >令和7年度
+                  介護報酬改定への対応について。当施設のサービス内容・加算体制に変更はございません。</span
+                >
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-06-01">2025.06.01</time>
+                  <span class="news-cat c-info">お知らせ</span>
+                </div>
+                <span class="news-txt"
+                  >夏のボランティア募集を開始しました（7〜9月活動）。地域の皆さまのご参加をお待ちしています。</span
+                >
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-05-20">2025.05.20</time>
+                  <span class="news-cat c-evt">イベント</span>
+                </div>
+                <span class="news-txt"
+                  >【6月28日（土）開催】施設見学会のご案内。予約不要・当日参加可。10:00〜12:00、施設1階ロビー集合。</span
+                >
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-05-15">2025.05.15</time>
+                  <span class="news-cat c-rep">活動報告</span>
+                </div>
+                <span class="news-txt"
+                  >春の交流会（お花見会）を実施しました。ご入居者・ご家族・地域ボランティアの皆さまとともに、楽しいひとときとなりました。</span
+                >
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-05-01">2025.05.01</time>
+                  <span class="news-cat c-rec">採用情報</span>
+                </div>
+                <span class="news-txt"
+                  >介護スタッフ（正社員・パート）を積極採用中です。未経験・無資格の方も歓迎。施設見学・個別相談を随時受け付けています。</span
+                >
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="#">
+                <div class="news-meta">
+                  <time class="news-dt" datetime="2025-04-01">2025.04.01</time>
+                  <span class="news-cat c-info">お知らせ</span>
+                </div>
+                <span class="news-txt"
+                  >令和7年度の年間行事予定を公開しました。桜祭り・七夕・夏祭り・クリスマス会など多彩なプログラムを計画しています。</span
+                >
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section id="about" class="sec sec-alt" aria-labelledby="about-ttl">
+      <!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+      <section id="about" class="sec-about" aria-labelledby="about-ttl">
         <div class="wrap">
           <div class="about-grid">
-            <div class="about-imgwrap fi">
-              <div class="about-imgframe">
+            <!-- Image -->
+            <div class="about-img-wrap" data-anim="left">
+              <div class="about-circle" aria-hidden="true"></div>
+              <div class="about-img-main">
                 <img
                   src="images/about.jpg"
-                  alt="施設内の明るいリビングでくつろぐご入居者と話しかけるスタッフ"
+                  alt="施設内の明るいリビングでくつろぐご入居者とスタッフ"
                   onerror="
                     this.style.display = 'none';
                     this.nextElementSibling.style.display = 'flex';
                   "
                 />
-                <div class="about-imgph" style="display: none">
-                  <span style="font-size: 3rem">🏡</span>
+                <div class="about-img-ph" style="display: none">
+                  <span style="font-size: 4rem">🏡</span>
                   <span>images/about.jpg</span>
                 </div>
               </div>
-              <div class="about-cap">
-                2015年4月開設。東京都国立市の豊かな自然に囲まれた、ユニット型特別養護老人ホームです。
+              <div class="about-accent" aria-hidden="true">
+                <div class="about-accent-n">
+                  <span data-count="10">0</span>年
+                </div>
+                <div class="about-accent-l">地域に根ざした介護</div>
               </div>
             </div>
 
-            <div>
-              <div class="fi" style="margin-bottom: 36px">
-                <span class="eyebrow">About Us</span>
+            <!-- Content -->
+            <div class="about-content">
+              <div data-anim="up">
+                <div class="eyebrow">About Us</div>
                 <h2 class="sec-ttl" id="about-ttl">「あねもね」について</h2>
-                <p class="sec-sub">
-                  ご入居者様の尊厳と自立を支援しながら、やさしさ・安心感・清潔感を大切にした介護をご提供しています。
-                </p>
               </div>
 
-              <p class="about-lead fi d1">
-                「介護される」ではなく、「ともに生きる」。<br />その思いを、日々のケアに込めています。
+              <p class="about-lead" data-anim="up" data-delay="1">
+                「介護される」ではなく、「ともに生きる」。<br />
+                その思いを、日々のケアに込めています。
               </p>
 
-              <p class="about-body fi d1">
+              <p class="about-body" data-anim="up" data-delay="2">
                 私たちは介護を単なるお世話としてではなく、ご入居者様の生きがいや喜びをともにつくっていく営みと考えています。入居時に生活歴・ご趣味・食の好みなどをうかがい、個別ケア計画を作成。担当のケアワーカーが継続的に関わることで深い信頼関係を築いています。ご家族には月1回の担当者会議・随時の電話連絡で丁寧に情報共有を行い、「ここに任せてよかった」と思っていただける施設づくりを目指しています。
               </p>
 
-              <div class="about-pts fi d2">
-                <div class="about-pt">
-                  <div class="about-pt-ttl">🌸 やさしさ</div>
-                  <div class="about-pt-body">
+              <div class="about-pillars" data-anim="up" data-delay="3">
+                <div class="pillar">
+                  <div class="pillar-ttl">🌸 やさしさ</div>
+                  <div class="pillar-body">
                     笑顔と温かな言葉かけを基本とした個別ケア。ご入居者様のペースを大切にします。
                   </div>
                 </div>
-                <div class="about-pt">
-                  <div class="about-pt-ttl">🏠 安心感</div>
-                  <div class="about-pt-body">
+                <div class="pillar">
+                  <div class="pillar-ttl">🏠 安心感</div>
+                  <div class="pillar-body">
                     24時間専門スタッフ常駐。協力医療機関との緊密な連携体制を整えています。
                   </div>
                 </div>
-                <div class="about-pt">
-                  <div class="about-pt-ttl">✨ 清潔感</div>
-                  <div class="about-pt-body">
+                <div class="pillar">
+                  <div class="pillar-ttl">✨ 清潔感</div>
+                  <div class="pillar-body">
                     衛生管理を徹底し、明るく快適な居住環境を維持。感染症対策も万全です。
                   </div>
                 </div>
-                <div class="about-pt">
-                  <div class="about-pt-ttl">🤝 透明性</div>
-                  <div class="about-pt-body">
+                <div class="pillar">
+                  <div class="pillar-ttl">🤝 透明性</div>
+                  <div class="pillar-body">
                     ご家族への丁寧な情報共有と定期面談を実施。開かれた運営を心がけます。
                   </div>
                 </div>
               </div>
 
-              <div class="fi d3">
-                <a href="#" class="btn btn-outline">施設について詳しく</a>
+              <div data-anim="up" data-delay="4">
+                <a href="#" class="btn-secondary">施設について詳しく</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SERVICES -->
-      <section id="services" class="sec" aria-labelledby="svc-ttl">
+      <!-- ══════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════ -->
+      <section id="services" class="sec-services" aria-labelledby="svc-ttl">
         <div class="wrap">
-          <div class="fi" style="text-align: center; margin-bottom: 48px">
-            <span class="eyebrow">Services &amp; Care</span>
+          <div class="sec-services-head" data-anim="up">
+            <div class="eyebrow">Services &amp; Care</div>
             <h2 class="sec-ttl" id="svc-ttl">サービス・ケア内容</h2>
-            <p class="sec-sub" style="margin: 0 auto">
+            <p class="sec-body">
               ご入居者様の心身の状態やご希望に合わせ、専門職チームが多角的なケアをご提供します。
             </p>
           </div>
 
-          <div class="svc-grid fi" role="list">
-            <article class="svc-card" role="listitem">
+          <div class="svc-grid" role="list">
+            <article class="svc-card" role="listitem" data-anim="up">
               <div class="svc-ico" aria-hidden="true">🛏️</div>
               <h3 class="svc-ttl">日常生活介護</h3>
               <p class="svc-desc">
-                入浴・食事・排泄・移動など日常生活全般を、介護福祉士が個別ケア計画に基づき丁寧にサポートします。身体状況の変化にも柔軟に対応し、「できることは自分で」という自立支援の姿勢を大切にしています。
+                入浴・食事・排泄・移動など日常生活全般を、介護福祉士が個別ケア計画に基づき丁寧にサポート。自立支援の姿勢を大切にしています。
               </p>
               <span class="svc-badge">介護福祉士配置</span>
             </article>
-            <article class="svc-card" role="listitem">
+            <article
+              class="svc-card"
+              role="listitem"
+              data-anim="up"
+              data-delay="1"
+            >
               <div class="svc-ico" aria-hidden="true">🏥</div>
               <h3 class="svc-ttl">医療・看護</h3>
               <p class="svc-desc">
-                嘱託医（内科・皮膚科）が週2回定期訪問し、看護師が常勤体制で健康状態を把握します。経管栄養・インスリン注射などの医療行為にも対応。協力病院との24時間連絡体制を整え、急変時にも迅速に対応します。
+                嘱託医（内科・皮膚科）が週2回定期訪問。看護師常勤で健康状態を把握し、急変時も協力病院との24時間連絡体制で迅速対応します。
               </p>
               <span class="svc-badge">看護師常勤・嘱託医週2回</span>
             </article>
-            <article class="svc-card" role="listitem">
+            <article
+              class="svc-card"
+              role="listitem"
+              data-anim="up"
+              data-delay="2"
+            >
               <div class="svc-ico" aria-hidden="true">🏃</div>
               <h3 class="svc-ttl">機能訓練・リハビリ</h3>
               <p class="svc-desc">
-                機能訓練指導員（理学療法士・作業療法士）が個別プログラムを作成。歩行訓練・関節可動域訓練のほか、生活動作そのものをリハビリとして組み込んだ「生活リハビリ」を日々のケアに取り入れています。
+                理学療法士・作業療法士が個別プログラムを作成。歩行訓練や関節可動域訓練のほか、「生活リハビリ」を日々のケアに組み込んでいます。
               </p>
               <span class="svc-badge">機能訓練加算Ⅱ算定</span>
             </article>
-            <article class="svc-card" role="listitem">
+            <article
+              class="svc-card"
+              role="listitem"
+              data-anim="up"
+              data-delay="1"
+            >
               <div class="svc-ico" aria-hidden="true">🍱</div>
               <h3 class="svc-ttl">食事・栄養管理</h3>
               <p class="svc-desc">
-                管理栄養士が献立作成から栄養管理まで一貫して担当。地産地消を意識した季節の食材を使い、見た目にも楽しい食事をご提供します。嚥下機能に合わせてソフト食・刻み食・とろみ食など個別対応いたします。
+                管理栄養士が献立作成から栄養指導まで担当。地産地消の季節食材を使い、嚥下機能に合わせたソフト食・刻み食・とろみ食にも個別対応します。
               </p>
               <span class="svc-badge">管理栄養士常勤</span>
             </article>
-            <article class="svc-card" role="listitem">
+            <article
+              class="svc-card"
+              role="listitem"
+              data-anim="up"
+              data-delay="2"
+            >
               <div class="svc-ico" aria-hidden="true">🎵</div>
               <h3 class="svc-ttl">生活相談・レクリエーション</h3>
               <p class="svc-desc">
-                生活相談員がご入居者様・ご家族の相談窓口として丁寧に対応。音楽療法・園芸・習字・体操・季節の行事（花見・七夕・夏祭り・クリスマス会）など、生活の質を高めるプログラムを毎月実施しています。
+                生活相談員が相談窓口として丁寧に対応。音楽療法・園芸・習字・体操・花見・七夕・夏祭り・クリスマス会など毎月多彩なプログラムを実施。
               </p>
               <span class="svc-badge">生活相談員常勤</span>
             </article>
-            <article class="svc-card" role="listitem">
+            <article
+              class="svc-card"
+              role="listitem"
+              data-anim="up"
+              data-delay="3"
+            >
               <div class="svc-ico" aria-hidden="true">🌿</div>
               <h3 class="svc-ttl">看取り介護</h3>
               <p class="svc-desc">
-                人生の最終段階においても、ご本人・ご家族のご意向を最大限に尊重した看取りケアを行います。事前に十分な話し合いの機会を設け、最期まで「ここにいてよかった」と感じていただける環境をご提供します。
+                ご本人・ご家族のご意向を最大限に尊重した看取りケアを行います。事前に十分な話し合いの機会を設け、最期まで「ここにいてよかった」と感じていただける環境をご提供します。
               </p>
               <span class="svc-badge">看取り介護加算算定</span>
             </article>
@@ -468,19 +554,28 @@
         </div>
       </section>
 
-      <!-- FACILITY PHOTOS -->
-      <section id="facility" class="sec sec-alt" aria-labelledby="fac-ttl">
+      <!-- ══════════════════════════════════════════
+     FACILITY — horizontal scroll gallery
+══════════════════════════════════════════ -->
+      <section id="facility" class="sec-facility" aria-labelledby="fac-ttl">
         <div class="wrap">
-          <div class="fi" style="margin-bottom: 40px">
-            <span class="eyebrow">Facility Guide</span>
+          <div class="sec-facility-head" data-anim="up">
+            <div class="eyebrow">Facility Guide</div>
             <h2 class="sec-ttl" id="fac-ttl">施設案内</h2>
-            <p class="sec-sub">
-              全室個室のユニット型施設です。プライバシーを守りながら、家庭的な雰囲気のなかで暮らしていただけます。
+            <p class="sec-body">
+              全室個室・ユニット型施設です。プライバシーを守りながら、家庭的な雰囲気のなかで暮らしていただけます。
             </p>
           </div>
+        </div>
 
-          <div class="fac-grid fi">
-            <div class="fac-ph">
+        <!-- Full-width scroll -->
+        <div class="fac-scroll-wrap" data-anim="up" data-delay="1">
+          <div
+            class="fac-scroll-track"
+            role="list"
+            aria-label="施設写真スクロール"
+          >
+            <div class="fac-card" role="listitem">
               <img
                 src="images/room.jpg"
                 alt="広々とした個室。ベッド・収納・窓際チェアが配置されている"
@@ -489,13 +584,13 @@
                   this.nextElementSibling.style.display = 'flex';
                 "
               />
-              <div class="fac-ph-dummy" style="display: none">
-                <span style="font-size: 2rem">🛏️</span
+              <div class="fac-card-ph" style="display: none">
+                <span style="font-size: 2.5rem">🛏️</span
                 ><span>images/room.jpg</span>
               </div>
-              <div class="fac-cap">居室（個室 18㎡以上）</div>
+              <div class="fac-card-cap">居室（個室 18㎡以上）</div>
             </div>
-            <div class="fac-ph">
+            <div class="fac-card" role="listitem">
               <img
                 src="images/living.jpg"
                 alt="自然光が差し込む共用リビング。入居者が談話を楽しんでいる"
@@ -504,13 +599,13 @@
                   this.nextElementSibling.style.display = 'flex';
                 "
               />
-              <div class="fac-ph-dummy" style="display: none">
-                <span style="font-size: 2rem">🛋️</span
+              <div class="fac-card-ph" style="display: none">
+                <span style="font-size: 2.5rem">🛋️</span
                 ><span>images/living.jpg</span>
               </div>
-              <div class="fac-cap">共用リビング・ダイニング</div>
+              <div class="fac-card-cap">共用リビング・ダイニング</div>
             </div>
-            <div class="fac-ph">
+            <div class="fac-card" role="listitem">
               <img
                 src="images/bath.jpg"
                 alt="一般浴・機械浴設備を備えた清潔な浴室"
@@ -519,63 +614,109 @@
                   this.nextElementSibling.style.display = 'flex';
                 "
               />
-              <div class="fac-ph-dummy" style="display: none">
-                <span style="font-size: 2rem">🛁</span
+              <div class="fac-card-ph" style="display: none">
+                <span style="font-size: 2.5rem">🛁</span
                 ><span>images/bath.jpg</span>
               </div>
-              <div class="fac-cap">浴室（一般浴・チェアー浴・機械浴）</div>
+              <div class="fac-card-cap">浴室（一般浴・チェアー浴・機械浴）</div>
             </div>
-            <div class="fac-ph">
+            <div class="fac-card" role="listitem">
               <img
                 src="images/garden.jpg"
-                alt="四季の花が咲く段差なしの庭園散策路"
+                alt="四季の花が咲く庭園。バリアフリーの散策路"
                 onerror="
                   this.style.display = 'none';
                   this.nextElementSibling.style.display = 'flex';
                 "
               />
-              <div class="fac-ph-dummy" style="display: none">
-                <span style="font-size: 2rem">🌸</span
+              <div class="fac-card-ph" style="display: none">
+                <span style="font-size: 2.5rem">🌸</span
                 ><span>images/garden.jpg</span>
               </div>
-              <div class="fac-cap">庭園・バリアフリー散策路</div>
+              <div class="fac-card-cap">庭園・バリアフリー散策路</div>
+            </div>
+            <div class="fac-card" role="listitem">
+              <img
+                src="images/dining.jpg"
+                alt="明るい食堂。入居者が食事を楽しんでいる"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="fac-card-ph" style="display: none">
+                <span style="font-size: 2.5rem">🍽️</span
+                ><span>images/dining.jpg</span>
+              </div>
+              <div class="fac-card-cap">食堂・多目的ホール</div>
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: 40px" class="fi d1">
-            <a href="#" class="btn btn-outline">施設案内を詳しく見る</a>
+          <div class="wrap">
+            <div class="fac-nav">
+              <div
+                class="fac-progress"
+                role="progressbar"
+                aria-label="スクロール進捗"
+              >
+                <div class="fac-progress-bar"></div>
+              </div>
+              <div class="fac-nav-btns">
+                <button class="fac-nav-btn" id="fac-prev" aria-label="前の写真">
+                  ‹
+                </button>
+                <button class="fac-nav-btn" id="fac-next" aria-label="次の写真">
+                  ›
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div
+          class="wrap"
+          style="margin-top: 2.5rem; text-align: center"
+          data-anim="up"
+          data-delay="2"
+        >
+          <a href="#" class="btn-secondary">施設案内を詳しく見る</a>
         </div>
       </section>
 
-      <!-- CTA STRIP -->
-      <section class="cta" id="contact" aria-labelledby="cta-ttl">
-        <div class="cta-in">
-          <div>
-            <h2 class="cta-ttl" id="cta-ttl">
-              入居相談・施設見学は随時受け付けております
-            </h2>
-            <p class="cta-desc">
-              ご入居に関するご不明点・費用・空き状況・入居までの流れなど、お気軽にご相談ください。<br />専任の生活相談員がお一人おひとりに丁寧にご対応いたします。
-            </p>
-          </div>
-          <div class="cta-acts">
-            <a href="tel:0425001234" class="btn-w"
-              ><span aria-hidden="true">📞</span>042-500-1234</a
-            >
-            <a href="mailto:info@anemone-care.jp" class="btn-wo"
-              ><span aria-hidden="true">✉️</span>メールで相談する</a
-            >
+      <!-- ══════════════════════════════════════════
+     CTA
+══════════════════════════════════════════ -->
+      <section class="sec-cta" id="contact" aria-labelledby="cta-ttl">
+        <div class="wrap">
+          <div class="cta-in">
+            <div class="cta-text" data-anim="left">
+              <h2 class="cta-ttl" id="cta-ttl">
+                入居相談・施設見学は随時受け付けております
+              </h2>
+              <p class="cta-desc">
+                ご入居に関するご不明点・費用・空き状況・入居までの流れなど、<br />専任の生活相談員がお一人おひとりに丁寧にご対応いたします。
+              </p>
+            </div>
+            <div class="cta-actions" data-anim="right">
+              <a href="tel:0425001234" class="btn-cta-white">
+                <span aria-hidden="true">📞</span>042-500-1234
+              </a>
+              <a href="mailto:info@anemone-care.jp" class="btn-cta-outline">
+                <span aria-hidden="true">✉️</span>メールで相談する
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- ── FOOTER ────────────────────────────────── -->
+    <!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
     <footer class="footer" role="contentinfo">
       <div class="wrap">
         <div class="footer-top">
-          <div>
+          <div class="footer-brand">
             <div class="footer-logo">
               <div class="footer-logo-ico" aria-hidden="true">🌸</div>
               <div>
@@ -655,7 +796,6 @@
 
     <button class="totop" id="totop" aria-label="ページトップへ戻る">↑</button>
 
-    <!-- JavaScript -->
     <script src="main.js"></script>
   </body>
 </html>
